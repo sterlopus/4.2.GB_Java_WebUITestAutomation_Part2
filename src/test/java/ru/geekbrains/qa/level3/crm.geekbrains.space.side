@@ -1,0 +1,327 @@
+{
+  "id": "6a3836f0-5b66-49cb-876d-d7c7c248a6ab",
+  "version": "2.0",
+  "name": "crm.geekbrains.space",
+  "url": "https://crm.geekbrains.space/project/",
+  "tests": [{
+    "id": "3f78e546-9ad8-4fc7-b9e1-fbc02d181344",
+    "name": "login.success",
+    "commands": [{
+      "id": "7dc741db-06f1-47f5-9f97-73240c594c05",
+      "comment": "",
+      "command": "open",
+      "target": "/user/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "76642455-ddc1-49bb-a380-eee41a5c6c31",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x1080",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9ee6d5e7-e4a6-4fe3-aed4-2aa6bf3b0da8",
+      "comment": "",
+      "command": "type",
+      "target": "id=prependedInput",
+      "targets": [],
+      "value": "Applanatest1"
+    }, {
+      "id": "61b1e2da-b1c5-4927-bc0a-103a8fb45bac",
+      "comment": "",
+      "command": "type",
+      "target": "id=prependedInput2",
+      "targets": [],
+      "value": "Student2020!"
+    }, {
+      "id": "08c480c9-51b4-4f5b-8eb9-1d8586f6530d",
+      "comment": "",
+      "command": "click",
+      "target": "id=_submit",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "92069c90-992b-403d-9b16-3745155ed68f",
+      "comment": "",
+      "command": "assertText",
+      "target": "xpath=//a[contains(.,'Applanatest1') and (@class='dropdown-toggle')]",
+      "targets": [],
+      "value": "Applanatest1 Applanatest1 Applanatest1"
+    }]
+  }, {
+    "id": "ee366b0f-8bd3-44ff-a9b6-b9c2eafcfdb8",
+    "name": "create_user.success",
+    "commands": [{
+      "id": "68e60c8b-233d-411d-848d-800462eb98e1",
+      "comment": "",
+      "command": "open",
+      "target": "https://crm.geekbrains.space/contact/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dcdaadc0-116b-4a63-9809-6a9785a8de21",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1366x704",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "26f53ae3-e120-46ff-a299-55127e589d57",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Создать контактное лицо",
+      "targets": [
+        ["linkText=Создать контактное лицо", "linkText"],
+        ["css=.back", "css:finder"],
+        ["xpath=(//a[contains(text(),'Создать контактное лицо')])[3]", "xpath:link"],
+        ["xpath=//div[@id='container']/div/div/div/div[2]/div/div/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/contact/create')])[3]", "xpath:href"],
+        ["xpath=//div[2]/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0f7bf8da-668f-4b27-bb0b-7211c9f20f7b",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//*[contains(@id,'crm_contact_lastName-uid')]",
+      "targets": [
+        ["id=crm_contact_lastName-uid-619e15fde4ab2", "id"],
+        ["name=crm_contact[lastName]", "name"],
+        ["css=#crm_contact_lastName-uid-619e15fde4ab2", "css:finder"],
+        ["xpath=//input[@id='crm_contact_lastName-uid-619e15fde4ab2']", "xpath:attributes"],
+        ["xpath=//form[@id='crm_contact-uid-619e15fdf15ad']/div[2]/div[3]/div/div/div[2]/fieldset/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div/div/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "73114d8d-aab9-41cb-90c4-6705b46db2a9",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=//*[contains(@id,'crm_contact_lastName-uid')]",
+      "targets": [
+        ["id=crm_contact_lastName-uid-619e15fde4ab2", "id"],
+        ["name=crm_contact[lastName]", "name"],
+        ["css=#crm_contact_lastName-uid-619e15fde4ab2", "css:finder"],
+        ["xpath=//input[@id='crm_contact_lastName-uid-619e15fde4ab2']", "xpath:attributes"],
+        ["xpath=//form[@id='crm_contact-uid-619e15fdf15ad']/div[2]/div[3]/div/div/div[2]/fieldset/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div/div/div[2]/input", "xpath:position"]
+      ],
+      "value": "John"
+    }, {
+      "id": "0c1ad177-d4df-47f2-bae8-599ee829276a",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//*[contains(@id,'crm_contact_firstName-uid')]",
+      "targets": [
+        ["id=crm_contact_firstName-uid-619e15fde49d7", "id"],
+        ["name=crm_contact[firstName]", "name"],
+        ["css=#crm_contact_firstName-uid-619e15fde49d7", "css:finder"],
+        ["xpath=//input[@id='crm_contact_firstName-uid-619e15fde49d7']", "xpath:attributes"],
+        ["xpath=//form[@id='crm_contact-uid-619e15fdf15ad']/div[2]/div[3]/div/div/div[2]/fieldset/div/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f1d5d5ad-5d91-4bdb-bbc6-2d5dcaf775dc",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=//*[contains(@id,'crm_contact_firstName-uid')]",
+      "targets": [
+        ["id=crm_contact_firstName-uid-619e15fde49d7", "id"],
+        ["name=crm_contact[firstName]", "name"],
+        ["css=#crm_contact_firstName-uid-619e15fde49d7", "css:finder"],
+        ["xpath=//input[@id='crm_contact_firstName-uid-619e15fde49d7']", "xpath:attributes"],
+        ["xpath=//form[@id='crm_contact-uid-619e15fdf15ad']/div[2]/div[3]/div/div/div[2]/fieldset/div/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": "Smith"
+    }, {
+      "id": "8049c7f7-b65a-4a9d-91a4-706cf89af194",
+      "comment": "",
+      "command": "click",
+      "target": "css=.select2-chosen",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "736af8b8-cfd5-478a-ad46-509f43131897",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[.='1234']",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f7761170-32c0-4716-9737-42f282245d8d",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=//input[contains(@id,'crm_contact_jobTitle-uid')]",
+      "targets": [
+        ["id=crm_contact_jobTitle-uid-619e15fde4c03", "id"],
+        ["name=crm_contact[jobTitle]", "name"],
+        ["css=#crm_contact_jobTitle-uid-619e15fde4c03", "css:finder"],
+        ["xpath=//input[@id='crm_contact_jobTitle-uid-619e15fde4c03']", "xpath:attributes"],
+        ["xpath=//form[@id='crm_contact-uid-619e15fdf15ad']/div[2]/div[3]/div/div/div[2]/fieldset/div[2]/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": "pusher"
+    }, {
+      "id": "a758ff59-8e11-44ff-8a96-1232da85e1ca",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-group:nth-child(3) > .btn",
+      "targets": [
+        ["css=.btn-group:nth-child(3) > .btn", "css:finder"],
+        ["xpath=(//button[@type='submit'])[3]", "xpath:attributes"],
+        ["xpath=//form[@id='crm_contact-uid-619e15fdf15ad']/div/div/div/div[2]/div/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Сохранить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "601ca17f-e979-45f0-8d66-db5c485b0a69",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//h1[@class='user-name']",
+      "targets": [],
+      "value": "John Smith"
+    }]
+  }, {
+    "id": "9f3dc0e8-529e-4a22-ade5-c8c13bd12679",
+    "name": "create_project.success",
+    "commands": [{
+      "id": "77bdad0b-f068-469f-864f-d6a847877d36",
+      "comment": "",
+      "command": "open",
+      "target": "https://crm.geekbrains.space/project/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9d165d10-40b0-4ef2-9db2-1f8e6b5dee2d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1366x704",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dbfd6213-8fb2-4548-bd23-9c86beeaa03d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Создать проект",
+      "targets": [
+        ["linkText=Создать проект", "linkText"],
+        ["css=.back", "css:finder"],
+        ["xpath=(//a[contains(text(),'Создать проект')])[3]", "xpath:link"],
+        ["xpath=//div[@id='container']/div/div/div/div[2]/div/div/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/project/create/')])[3]", "xpath:href"],
+        ["xpath=//div[2]/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7d98a388-6194-4777-b74a-d37408e54cb5",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=//input[contains(@id,'crm_project_name-uid')]",
+      "targets": [
+        ["id=crm_project_name-uid-619e1977ea61c", "id"],
+        ["name=crm_project[name]", "name"],
+        ["css=#crm_project_name-uid-619e1977ea61c", "css:finder"],
+        ["xpath=//input[@id='crm_project_name-uid-619e1977ea61c']", "xpath:attributes"],
+        ["xpath=//form[@id='crm_project-uid-619e19785c85c']/div[2]/div[3]/div/div/div[2]/fieldset/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div/div/div[2]/input", "xpath:position"]
+      ],
+      "value": "gbuser_project"
+    }, {
+      "id": "78f598d0-ddfd-40b0-8c42-979f5aa7a4cd",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//span[.='Укажите организацию']",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9045f421-1811-4806-b10f-136d5a1b0199",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[.='1234']",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bfd587a8-b844-40a5-9bfe-45d3c499b53e",
+      "comment": "",
+      "command": "select",
+      "target": "name=crm_project[businessUnit]",
+      "targets": [],
+      "value": "label=Research & Development"
+    }, {
+      "id": "6c1d1ea1-b239-49b2-b371-490e876075a0",
+      "comment": "",
+      "command": "select",
+      "target": "name=crm_project[curator]",
+      "targets": [],
+      "value": "label=Юзеров Юзер"
+    }, {
+      "id": "800bb708-7a43-4716-a4b0-601aad973925",
+      "comment": "",
+      "command": "select",
+      "target": "name=crm_project[rp]",
+      "targets": [],
+      "value": "label=Ким Юрий"
+    }, {
+      "id": "16acc9ed-b862-4228-b681-5d0b982f9248",
+      "comment": "",
+      "command": "select",
+      "target": "name=crm_project[manager]",
+      "targets": [],
+      "value": "label=Третьяков Илья"
+    }, {
+      "id": "719988c5-50ea-4dc5-a64a-94bdb7ddf0a4",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//button[contains(@class,'main-group') and contains(.,'Сохранить')]",
+      "targets": [
+        ["css=.btn-group:nth-child(3) > .btn", "css:finder"],
+        ["xpath=(//button[@type='submit'])[3]", "xpath:attributes"],
+        ["xpath=//form[@id='crm_project-uid-619e19785c85c']/div/div/div/div[2]/div/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Сохранить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d95e6304-9409-4fa1-b77e-5e62d859a8fe",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//a[contains(@class,'remove-button') and @title='Удалить']",
+      "targets": [
+        ["css=.btn-group:nth-child(3) > .btn", "css:finder"],
+        ["xpath=(//button[@type='submit'])[3]", "xpath:attributes"],
+        ["xpath=//form[@id='crm_project-uid-619e19a1ed7d1']/div/div/div/div[2]/div/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Сохранить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5b69aae7-7fef-4e5b-b00e-aaf43c5f65b3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Да, удалить",
+      "targets": [
+        ["linkText=Да, удалить", "linkText"],
+        ["css=.ok", "css:finder"],
+        ["xpath=//a[contains(text(),'Да, удалить')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '#')])[283]", "xpath:href"],
+        ["xpath=//div[3]/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Да, удалить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "e3af64bf-4d92-4d01-8256-a414997a38bd",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["3f78e546-9ad8-4fc7-b9e1-fbc02d181344", "ee366b0f-8bd3-44ff-a9b6-b9c2eafcfdb8", "9f3dc0e8-529e-4a22-ade5-c8c13bd12679"]
+  }],
+  "urls": ["https://crm.geekbrains.space/", "https://crm.geekbrains.space/contact/", "https://crm.geekbrains.space/project/"],
+  "plugins": []
+}
