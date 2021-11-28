@@ -1,0 +1,122 @@
+{
+  "id": "daac9aa6-9c19-4636-91c1-21c6c5688863",
+  "version": "2.0",
+  "name": "gb.ru",
+  "url": "https://gb.ru",
+  "tests": [{
+    "id": "bad12bc0-7361-4a6b-b007-4c8619092ebf",
+    "name": "jobfinder_search.success",
+    "commands": [{
+      "id": "12b4b781-a858-4ffe-aac2-e024d33533c0",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bb03e34b-3752-4458-b238-8d9102532c72",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1600x1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fe8c884c-89b6-4f31-87ae-b57a09ec0c80",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "xpath=//a[.='Поиск работы']",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8007ae0a-8daa-4183-a53e-6e881aa400d6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Вакансии",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "34a7175a-5f29-4f8a-b3e4-e8f005f44b66",
+      "comment": "",
+      "command": "check",
+      "target": "name=filters[paid]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "49512697-c3aa-4efc-9444-dd0cfbd11ee4",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=//input[@placeholder='Поиск по вакансиям и стажировкам']",
+      "targets": [],
+      "value": "Совкомбанк"
+    }, {
+      "id": "1dbfda9a-e0b9-486c-a6f5-00a552e17df8",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=container-search",
+      "targets": [
+        ["id=container-search", "id"],
+        ["css=#container-search", "css:finder"],
+        ["xpath=//input[@id='container-search']", "xpath:attributes"],
+        ["xpath=//div/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "b7a3dd0c-181e-4ec9-8784-ed07820d7e2e",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "xpath=//div[.='Совкомбанк Технологии']",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "b03d887e-ce56-4ac3-8f8c-c7b64fe1fc4c",
+    "name": "mainmenu_localization.success",
+    "commands": [{
+      "id": "dbdb0e6f-05fe-4971-99a3-b96b5852541d",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2723de76-d24a-4ef7-9c0e-d6ecc4f95799",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x1080",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "39e14339-2e1d-4740-a001-f9fce7e14a1d",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@class='mn-trigger-menu mn-header_hidden-mobile']",
+      "targets": [
+        ["css=.mn-header_hidden-mobile > .mn-trigger-menu__box", "css:finder"],
+        ["xpath=//div[@id='header-monolit']/header/div/div/div/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div/div/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "26cbefc0-6fd0-47ec-a53f-028f7bad9b2c",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//img[@src='https://frontend-scripts.hb.bizmrg.com/unique-hf/svg/ru-icon.svg']",
+      "targets": [
+        ["css=.mn-menu__left .mn-menu-bottom-info__btns > .mn-menu-bottom-info__btns-item:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='header-monolit']/header/div[3]/div/div/div[2]/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "8328caf2-fd25-419a-8630-7f61baf5aac2",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["b03d887e-ce56-4ac3-8f8c-c7b64fe1fc4c", "bad12bc0-7361-4a6b-b007-4c8619092ebf"]
+  }],
+  "urls": ["https://gb.ru/"],
+  "plugins": []
+}
