@@ -1,5 +1,3 @@
-package ru.geekbrains.qa.level3;
-
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
