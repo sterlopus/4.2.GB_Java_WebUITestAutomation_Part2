@@ -50,8 +50,8 @@ public class Homework5Test {
     @Test
     void newDealTest() throws InterruptedException {
         login(driver);
-
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("crm_control_panel_menu_menu_crm_contact")));
+
         int dealsCounter = Integer.parseInt(driver
                 .findElement(By.xpath("//div[@data-text='Сделки']"))
                 .getAttribute("data-counter"));
@@ -72,6 +72,7 @@ public class Homework5Test {
         driver.findElement(By.xpath("//div[@title='Закрыть']")).click();
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("crm_control_panel_menu_menu_crm_catalog")));
+
         Assertions.assertThat(Integer.parseInt(driver.findElement(By.xpath("//div[@data-text='Сделки']"))
                         .getAttribute("data-counter")))
                 .isEqualTo(dealsCounter + 1);

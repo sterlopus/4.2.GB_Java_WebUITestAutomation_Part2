@@ -42,10 +42,28 @@ public class DealsKanbanView extends BaseCRMPage {
     @FindBy(xpath = "//a[@title='Добавить сделку']")
     WebElement addNewDealButton;
 
-    DealsKanbanView addNewDeal() {
-        addNewDealButton.click();
-        return this;
-    }
+        DealsKanbanView addNewDeal() {
+            addNewDealButton.click();
+            return this;
+        }
+
+
+    @FindBy(xpath = "//iframe[@class='side-panel-iframe']")
+    WebElement newDealFrame;
+
+        DealsKanbanView switchToNewDealFrame() {
+            driver.switchTo().frame(newDealFrame);
+            return this;
+        }
+
+
+    @FindBy(xpath = "//div[@class='main-kanban-column-total-item']")
+    List<WebElement> columnDealsCounters;
+
+        int getColumnDealCounter(int i) {
+            return Integer.parseInt(columnDealsCounters.get(i).getText());
+        }
+
 
     @FindBy(xpath = "//div[@class='main-kanban-item']")
     WebElement anyKanbanDeal;

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class Homework6Test {
@@ -21,10 +22,11 @@ public class Homework6Test {
     }
 
     @BeforeEach
-    void setupDriver(){
+    void setupDriver() {
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
         loginPage = new LoginPage(driver);
-
+        dealsBlock = new DealsKanbanView(driver);
     }
 
 
@@ -32,21 +34,48 @@ public class Homework6Test {
     void newDealCreateTest() throws InterruptedException {
 
         login(driver);
-        dealsBlock = new DealsKanbanView(driver);
 
+        int counter = dealsBlock.getDealsCounter();
         dealsBlock.addNewDeal();
-        dealsBlock.getDealsCounter();
+        dealsBlock.switchToNewDealFrame();
+        DealFrame dealFrame = new DealFrame(driver);
 
-        Assertions.assertThat(true);
+        dealFrame.fillTitle()
+                .fillTotalSum()
+                .fillContactName()
+                .fillCompanyName()
+                .saveNewDeal()
+                .closeDealFrame();
+
+        Assertions.assertThat(dealsBlock.getDealsCounter()).isEqualTo(++counter);
 
     }
 
 
     @Test
     void kanbanMoveTest() throws InterruptedException {
-        login2(driver);
+        login(driver);
+        DealsKanbanView dealsKanbanView = new DealsKanbanView(driver);
 
+        int sourceColumnCounterBefore = dealsKanbanView.getColumnDealCounter(0);
+        int targetColumnCounterBefore = dealsKanbanView.getColumnDealCounter(2);
 
+        Thread.sleep(1000);
+
+        Actions actions = new Actions(driver);
+        actions.dragAndDrop(
+                        dealsKanbanView.allKanbanDeals.get(1),
+                        dealsKanbanView.prepaymentInvoicedDealsKanbanColumn)
+                .build()
+                .perform();
+
+        Thread.sleep(1000);
+
+        int sourceColumnCounterAfter = dealsKanbanView.getColumnDealCounter(0);
+        int targetColumnCounterAfter = dealsKanbanView.getColumnDealCounter(2);
+
+        Assertions.assertThat(sourceColumnCounterAfter).isEqualTo(--sourceColumnCounterBefore);
+        Assertions.assertThat(targetColumnCounterAfter).isEqualTo(++targetColumnCounterBefore);
 
     }
 
@@ -57,27 +86,15 @@ public class Homework6Test {
     }
 
 
-
     void login(WebDriver driver) throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
-        driver.get(ProtoPage.CRM_URL);
-        loginPage.inputLogin();
-        loginPage.clickNextButton();
-        loginPage.inputPassword();
-        loginPage.clickNextButton();
-        loginPage.wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.id("crm_control_panel_menu_menu_crm_contact")));
-    }
-
-    void login2(WebDriver driver) throws InterruptedException {
-        LoginPage loginPage = new LoginPage(driver);
-        driver.get(ProtoPage.CRM_URL);
+        driver.get(Bitrix24Constants.CRM_URL);
         loginPage.inputLogin()
                 .clickNextButton()
                 .inputPassword()
                 .clickNextButton()
                 .wait.until(ExpectedConditions.visibilityOfElementLocated(
-                        By.id(BaseCRMPage.TOP_MENU_LOCATOR_BY_ID)));
+                        By.id(Bitrix24Constants.TOP_MENU_LOCATOR_BY_ID)));
     }
 
 

@@ -8,11 +8,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends ProtoPage{
 
-    // CONSTANTS
-//    private static final String CRM_URL = "https://b24-in8ijg.bitrix24.ru";
-    private static final String LOGIN = "gleb.smirnov@me.com";
-    private static final String PASSWORD = "Bitrix24-gbuser";
-
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -31,30 +26,20 @@ public class LoginPage extends ProtoPage{
 
     // Methods
     LoginPage inputLogin() {
-        loginInputField.sendKeys(LOGIN);
+        loginInputField.sendKeys(Bitrix24Constants.LOGIN);
         return this;
     }
 
     LoginPage inputPassword() {
-        passwordInputField.sendKeys(PASSWORD);
+        passwordInputField.sendKeys(Bitrix24Constants.PASSWORD);
         return this;
     }
 
     LoginPage clickNextButton() throws InterruptedException {
-        Thread.sleep(100);
+        Thread.sleep(100);  // cannot replace with 'wait'
         submitLoginButton.click();
+        Thread.sleep(100);  // cannot replace with 'wait'
         return this;
     }
-
-
-    void login() throws InterruptedException {
-        driver.findElement(By.id("login")).sendKeys(LOGIN);
-        Thread.sleep(100);
-        driver.findElement(By.xpath("//button[@data-action='submit']")).click();
-        driver.findElement(By.id("password")).sendKeys(PASSWORD);
-        driver.findElement(By.xpath("//label[@for='remember']")).click();
-        driver.findElement(By.xpath("//button[@data-action='submit']")).click();
-    }
-
 
 }
