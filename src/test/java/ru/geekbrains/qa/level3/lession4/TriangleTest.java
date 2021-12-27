@@ -46,5 +46,4 @@ public class TriangleTest {
         assertThat(new Triangle(1,2,3).triangleSquare()).isEqualTo(0);
     }
 
-
 }

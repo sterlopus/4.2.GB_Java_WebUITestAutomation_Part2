@@ -25,7 +25,8 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
-      <version>${JUNIT-VERSION}</version>
+      <version>5.8.2</version>
+<!--      <version>${JUNIT-VERSION}</version>-->
       <scope>test</scope>
     </dependency>
 
@@ -33,7 +34,8 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-params</artifactId>
-      <version>${JUNIT-VERSION}</version>
+      <version>5.8.2</version>
+<!--      <version>${JUNIT-VERSION}</version>-->
       <scope>test</scope>
     </dependency>
 
