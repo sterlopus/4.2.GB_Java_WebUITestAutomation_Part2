@@ -1,5 +1,6 @@
 package ru.geekbrains.qa.level3.lession6;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,7 +30,7 @@ public class DealsKanbanView extends BaseCRMPage {
     WebElement finalInvoicedDealsKanbanColumn;
 
     /**
-     *  other kanban columns items
+     * other kanban columns items
      */
 
     @FindBy(xpath = "//div[@data-id='WON']")
@@ -37,32 +38,34 @@ public class DealsKanbanView extends BaseCRMPage {
     //  end of kanban view columns
 
 
-
     // Buttons and deals
     @FindBy(xpath = "//a[@title='Добавить сделку']")
     WebElement addNewDealButton;
 
-        DealsKanbanView addNewDeal() {
-            addNewDealButton.click();
-            return this;
-        }
+    @Step("клик на кнопку ДОБАВИТЬ СДЕЛКУ")
+    DealsKanbanView addNewDeal() {
+        addNewDealButton.click();
+        return this;
+    }
 
 
     @FindBy(xpath = "//iframe[@class='side-panel-iframe']")
     WebElement newDealFrame;
 
-        DealsKanbanView switchToNewDealFrame() {
-            driver.switchTo().frame(newDealFrame);
-            return this;
-        }
+    @Step("переключиться во фрейм новой сделки")
+    DealsKanbanView switchToNewDealFrame() {
+        driver.switchTo().frame(newDealFrame);
+        return this;
+    }
 
 
     @FindBy(xpath = "//div[@class='main-kanban-column-total-item']")
     List<WebElement> columnDealsCounters;
 
-        int getColumnDealCounter(int i) {
-            return Integer.parseInt(columnDealsCounters.get(i).getText());
-        }
+    @Step("получить значение счётчика сделок в колонке i")
+    int getColumnDealCounter(int i) {
+        return Integer.parseInt(columnDealsCounters.get(i).getText());
+    }
 
 
     @FindBy(xpath = "//div[@class='main-kanban-item']")

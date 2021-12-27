@@ -1,6 +1,9 @@
 package ru.geekbrains.qa.level3.lession5;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -16,6 +19,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+@Story("Сделки")
 public class Homework5Test {
 
     private static final String CRM_URL = "https://b24-in8ijg.bitrix24.ru";
@@ -48,6 +52,8 @@ public class Homework5Test {
 
 
     @Test
+    @Feature("Новые сделки")
+    @Description("Создание новой сделки")
     void newDealTest() throws InterruptedException {
         login(driver);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("crm_control_panel_menu_menu_crm_contact")));
@@ -79,6 +85,8 @@ public class Homework5Test {
     }
 
     @Test
+    @Feature("Канбан")
+    @Description("Перетаскивание сделки между столбцами Канбан")
     void kanbanMoveTest() throws InterruptedException {
         login(driver);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("crm_control_panel_menu_menu_crm_contact")));
