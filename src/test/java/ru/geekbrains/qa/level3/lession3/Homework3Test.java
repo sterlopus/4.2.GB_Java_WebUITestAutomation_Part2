@@ -1,6 +1,7 @@
 package ru.geekbrains.qa.level3.lession3;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Story;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +11,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 
 import java.time.Duration;
 
+@Story("Сделки")
 public class Homework3Test {
 
     private static final String CRM_URL = "https://b24-in8ijg.bitrix24.ru";

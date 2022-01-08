@@ -1,14 +1,20 @@
 package ru.geekbrains.qa.level3.lession6;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.*;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogType;
+import org.openqa.selenium.support.events.EventFiringDecorator;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import ru.geekbrains.qa.level3.lession7.CustomLogger;
 
+@Story("Сделки")
 public class Homework6Test {
 
     WebDriver driver;
@@ -23,7 +29,8 @@ public class Homework6Test {
 
     @BeforeEach
     void setupDriver() {
-        driver = new ChromeDriver();
+        driver = new EventFiringDecorator(new CustomLogger()).decorate(new ChromeDriver());
+//        driver = new ChromeDriver();
         driver.manage().window().maximize();
         loginPage = new LoginPage(driver);
         dealsBlock = new DealsKanbanView(driver);
@@ -31,6 +38,9 @@ public class Homework6Test {
 
 
     @Test
+    @Feature("Новые сделки")
+    @Description("Тест  создания новой сделки")
+    @Severity(SeverityLevel.BLOCKER)
     void newDealCreateTest() throws InterruptedException {
 
         login(driver);
@@ -53,6 +63,9 @@ public class Homework6Test {
 
 
     @Test
+    @Feature("Канбан")
+    @Description("Тест перетаскивания сделки между столбцами представления Канбан")
+    @Severity(SeverityLevel.NORMAL)
     void kanbanMoveTest() throws InterruptedException {
         login(driver);
         DealsKanbanView dealsKanbanView = new DealsKanbanView(driver);
@@ -82,6 +95,8 @@ public class Homework6Test {
 
     @AfterEach
     void tearDown() {
+        LogEntries logs = driver.manage().logs().get(LogType.BROWSER);
+        logs.forEach(l -> Allure.addAttachment("Элемент лога браузера", l.getMessage()));
         driver.quit();
     }
 

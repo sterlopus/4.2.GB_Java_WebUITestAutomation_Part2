@@ -1,5 +1,6 @@
 package ru.geekbrains.qa.level3.lession6;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -37,6 +38,7 @@ public class BaseCRMPage extends ProtoPage{
         @FindBy(xpath = "//div[@data-text='Сделки']")
         WebElement dealsCounter;
 
+        @Step("Получить значение счётчика Сделок")
         int getDealsCounter() {
             return Integer.parseInt(dealsCounter.getAttribute("data-counter"));
         }
